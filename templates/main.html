@@ -1,0 +1,129 @@
+{% include "layout.html" %}
+<style>
+
+     nav{
+    background: #CDFCF6;
+     }
+
+    #navva a:hover{
+       background: #B8E8FC;
+       color: black;
+    }
+
+    .inner:focus {
+  border-color: #B8E8FC;
+  box-shadow: inset 0 0 40px #B8E8FC;
+   }
+.custom-shape-divider-top-1669537715 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1669537715 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 371px;
+}
+
+.custom-shape-divider-top-1669537715 .shape-fill {
+    fill: #202122;
+}
+
+
+
+
+</style>
+<div class="background img-index" xmlns="http://www.w3.org/1999/html">
+    <div class="containerx">
+        <div class="papa blur1 rox">
+            <center>
+                <h1 class="register inner" style="color: #7DE5ED;"> Search </h1>
+                <p style="color : red; font-weight: bold;"> {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for error in messages %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}</p>
+                <form action="/search" method="post">
+                    <div class="row mb-3">
+
+                        <div class="col" style="margin: 0 8rem 4rem;">
+                            <div class="form-floating">
+                                <input class="form-control ingredients inner" id="floatingInput1" name='ingredients'
+                                       placeholder="Ingredients" type="text">
+                                <label for="floatingInput1">Ingredients</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion" id="accordionExample">
+                        {% for acc in data %}
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button aria-controls="collapseOne" aria-expanded="false"
+                                        class="accordion-button collapsed"
+                                        data-bs-target="#collapse{{ acc.replace(' ', '') }}" data-bs-toggle="collapse"
+                                        type="button">
+                                    # {{ acc }}
+                                </button>
+                            </h2>
+                            <div aria-labelledby="headingOne" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionExample"
+                                 id="collapse{{ acc.replace(' ', '') }}" style="">
+                                <div class="accordion-body">
+
+                                    <div class="row">
+
+                                        {% for box in data[acc] %}
+                                        <div class="col-sm-6">
+                                            <div class="form-check {{ acc.replace(' ', '') }}">
+                                                <input class="form-check-input"
+                                                       id="flexRadioDefault{{ acc.replace(' ', '') }}"
+                                                       name="{{ acc.replace(' ', '') }}"
+                                                       type="radio"
+                                                       value="{{ box.lower() }}">
+                                                <label class="form-check-label"
+                                                       for="flexRadioDefault{{ acc.replace(' ', '') }}">
+                                                    {{ box }}
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        {% endfor %}
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="col" style="margin-top: 40px;">
+                        <button class="btn btn-lg " style="background-color: #B8E8FC" type="submit">Search</button>
+                    </div>
+
+
+                </form>
+
+            </center>
+        </div>
+
+    </div>
+</div>
+
+
+{% include "footer.html" %}
+
+
+
+
+

@@ -1,0 +1,65 @@
+<div class="card" style="width: 20rem;">
+    <div class="card-header text-center">
+        {{data.label}}
+    </div>
+    <img class="card-img-top background" src='{{data.img1}}'
+         style="border-radius: 0; height: 200px;">
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item px-auto" style="
+         padding-top: 22px; padding-bottom: 22px;">Ingredients
+        </li>
+
+        <table class="table table-hover">
+            <tbody style="padding: 20px;">
+            <tr>
+                <td>{{data.ingredients[0]}}</td>
+            </tr>
+            <tr>
+                <td>{{data.ingredients[1]}}</td>
+            </tr>
+            <tr>
+                <td>{{data.ingredients[2]}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <li class="list-group-item mx-auto" style="
+        padding-bottom: 20px;
+    ">Nutrients
+        </li>
+    </ul>
+    <table class="table table-hover">
+        <tbody>
+        <tr>
+
+            <td style='padding-left: 40px;'>Calories</td>
+            <td style='padding-left: 40px;'>{{data.calories}}</td>
+
+        </tr>
+        <tr>
+
+            <td style='padding-left: 40px;'>Sugar</td>
+            <td style='padding-left: 40px;'>{{data.sugar}}</td>
+
+        </tr>
+        <tr>
+
+            <td style='padding-left: 40px;'>Fat</td>
+            <td style='padding-left: 40px;'>{{data.fat}}</td>
+
+        </tr>
+        </tbody>
+    </table>
+    <div class="card-footer">
+        <div class="row text-center">
+            <div class="col-6">
+                <a class="btn btn-primary " href="{{ data.link }}">Recipe </a>
+            </div>
+            <div class="col">
+                <a class="btn btn-primary" href="{{ url_for('bookmark', id = data.dish_id )}}">Bookmark</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

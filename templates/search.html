@@ -1,0 +1,130 @@
+{% include "layout.html "%}
+
+<style>
+
+    .card{
+      margin-bottom: 20px;
+    }
+
+    body {
+    margin: 3% 0% 5% 10%;
+    background-color: #CDF0EA;
+    }
+
+
+        nav{
+    background: #B8E8FC;
+    }
+
+    #navva a:hover{
+    background: #BCCEF8;
+    color: black;
+    }
+
+
+
+</style>
+<h1 class="register" style="color: #AFB4FF; padding: 0 0 1% 26%; font-size: 5.5rem;">Recipes </h1>
+
+<!-- Example Code -->
+<div class="container">
+    <div class="row text-center">
+
+        <div class="col-md-8 text-center"
+             style="background-color: #B7D3DF; padding: 3% 3%; border-radius:25px; marign-top: 40%;">
+            <div class="row justify-content-center;">
+                {% if data == [] %}
+                <p> Sorry, no recipes available as per your parameter. You should either remove some filters or change
+                    some ingredients</p>
+                {% else %}
+                {% for i in data %}
+                <div class="col-md-4 text-center">
+                    <a class="showCard" href="#" recepieId="{{ data.index(i) }}" style="text-decoration: none;">
+                        <div class="card" style="width: 12.5rem;">
+                            <div class="card-header">
+                                {{ i.label }}
+                            </div>
+                            <img class="card-img-top" src='{{ i["img"] }}'
+                                 style="border-radius: 0;">
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        {% endif %}
+
+
+        <div class="col-md-4" id='display' style="position: fixed; left: 76.5%; top: 3%;">
+            <div class="card" style="width: 20rem; height: 97vh;">
+                <div class="card-header text-center">
+                    Name
+                </div>
+                <img class="card-img-top" src='https://img.freepik.com/free-photo/old-black-background-grunge-texture-blackboard-chalkboard-concrete_1258-52289.jpg?w=2000'
+                     style="border-radius: 0; height: 200px; ">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-auto" style="
+        ; padding-top: 22px; padding-bottom: 22px;">Ingredients
+                    </li>
+
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td>#</td>
+                        </tr>
+                        <tr>
+                            <td>#</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <li class="list-group-item mx-auto" style="
+        padding-bottom: 20px;
+    ">Nutrients
+                    </li>
+                </ul>
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+
+                        <td>Calories</td>
+                        <td>Value</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Sugar</td>
+                        <td>Value</td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Fat</td>
+                        <td>Value</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="card-footer ">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <a class="btn btn-primary " href="#">Recepie </a>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-primary" href="#">Bookmark</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- End Example Code -->

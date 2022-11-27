@@ -1,0 +1,63 @@
+{% include "layout.html" %}
+
+<style>
+    nav{
+    background: #FFD8A9;
+    }
+
+#navva a:hover{
+background: #FFAE6D;
+color: black;
+}
+
+
+</style>
+
+
+<div class="background img-login" xmlns="http://www.w3.org/1999/html">
+    <div class="papa blur box">
+        <center>
+            <h1 class="register " style="color: #F49D1A;"> Login </h1>
+            <p style="color : red; font-weight: bold;"> {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for error in messages %}
+                {{ error }}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}</p>
+            <form action="/login" method="post">
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <div class="form-floating">
+                            <input class="form-control anda" id="floatingInput1" name='email'
+                                   placeholder="name@example.com" type="email">
+                            <label for="floatingInput1">Email address</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <div class="form-floating">
+                            <input class="form-control anda" id="floatingInput3" name="password"
+                                   placeholder="name@example.com" type="password">
+                            <label for="floatingInput3">Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <button class="btn btn-warning btn-lg" style="margin-top: 30px;" type="submit">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </center>
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,80 @@
+{% include "layout.html" %}
+<style>
+    nav{
+    background: #D9F8C4;
+    }
+
+#navva a:hover{
+background: #A8E890;
+color: black;
+}
+
+
+</style>
+
+
+<div class="background img-register" xmlns="http://www.w3.org/1999/html">
+    <div class="papa" style="margin-top: 6%;">
+        <center>
+            <h1 class="register"> Register </h1>
+            <p style="color : red; font-weight: bold;"> {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for error in messages %}
+                {{ error }}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}</p>
+            <form action="/register" method="post">
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <div class="form-floating">
+                            <input class="form-control panda" id="floatingInput0" name="name" placeholder="Name"
+                                   type="text">
+                            <label for="floatingInput0">Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <div class="form-floating">
+                            <input class="form-control panda" id="floatingInput1" name="email"
+                                   placeholder="name@example.com" type="email">
+                            <label for="floatingInput1">Email address</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <div class="form-floating">
+                            <input class="form-control panda" id="floatingInput2" name="password1"
+                                   placeholder="name@example.com" type="password">
+                            <label for="floatingInput2">Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <div class="form-floating">
+                            <input class="form-control panda" id="floatingInput3" name="password2"
+                                   placeholder="name@example.com" type="password">
+                            <label for="floatingInput3">Confirm Password</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="col">
+                        <button class="btn btn-danger" type="submit">Sign in</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </center>
+    </div>
+
+</div>
